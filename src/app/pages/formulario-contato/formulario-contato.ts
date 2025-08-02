@@ -15,11 +15,11 @@ export class FormularioContato {
   constructor() {
     this.contatoForm = new FormGroup({
       nome: new FormControl('Matheus'),
-      telefone: new FormControl(''),
-      email: new FormControl(''),
+      telefone: new FormControl('99 9999-9999'),
+      email: new FormControl('matheus@email.com'),
       aniversario: new FormControl(''),
       redes: new FormControl(''),
-      observacoes: new FormControl(''),
+      observacoes: new FormControl('Olá Mundo!'),
     });
   }
 }

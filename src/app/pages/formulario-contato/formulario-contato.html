@@ -1,14 +1,13 @@
 <app-container>
   <header>
-    <section class="header-link">
+    <section class="cabecalho-link">
       <img src="assets/logo.png" alt="" />
     </section>
-    <section class="header-contato">
+    <section class="cabecalho-contato">
       <img src="assets/adicionar-contato.png" alt="" />
       <h1>Adicionar contato</h1>
     </section>
   </header>
-
   <app-separador></app-separador>
   <form [formGroup]="contatoForm" (ngSubmit)="salvarContato()">
     <label for="nome">Nome</label>
@@ -41,14 +40,12 @@
     />
     @if (contatoForm.get('email')?.errors?.['required'] &&
     contatoForm.get('email')?.touched) {
-
     <div class="mensagem-erro">Campo obrigatório</div>
     } @if (contatoForm.get('email')?.errors?.['email'] &&
     contatoForm.get('email')?.touched) {
     <div class="mensagem-erro">Formato de e-mail inválido</div>
     }
     <app-separador></app-separador>
-
     <label for="aniversario">Aniversário</label>
     <input
       type="date"
@@ -66,19 +63,24 @@
         formControlName="redes"
       />
     </div>
+    <label for="redes">Observações</label>
     <textarea
       type="text"
       id="observacoes"
       placeholder="Coloque observações nesse espaço.  Exemplo: “Instrutora da academia “Nova Imagem”, amiga da Júlia”."
       formControlName="observacoes"
     ></textarea>
-
     <section class="botoes">
       <button (click)="cancelar()" class="botao-cancelar" type="button">
         Cancelar
       </button>
-
-      <button class="botao-salvar" type="submit">Salvar contato</button>
+      <button
+        [disabled]="contatoForm.invalid"
+        [ngClass]="contatoForm.valid ? 'botao-salvar' : 'botao-desabilitado'"
+        type="submit"
+      >
+        Salvar contato
+      </button>
     </section>
   </form>
 </app-container>

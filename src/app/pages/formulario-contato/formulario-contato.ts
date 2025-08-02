@@ -7,10 +7,11 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-formulario-contato',
-  imports: [Container, Separador, ReactiveFormsModule],
+  imports: [Container,CommonModule, Separador, ReactiveFormsModule],
   templateUrl: './formulario-contato.html',
   styleUrl: './formulario-contato.css',
 })
@@ -29,9 +30,7 @@ export class FormularioContato {
   }
 
   salvarContato() {
-    if (this.contatoForm.valid) {
-      console.log(this.contatoForm.value);
-    }
+    console.log(this.contatoForm.value);
   }
 
   cancelar() {

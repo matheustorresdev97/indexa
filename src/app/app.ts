@@ -7,10 +7,11 @@ import { Contato } from './components/contato/contato';
 import agenda from './agenda.json';
 import { ContatoInterface } from './interfaces/contato';
 import { FormsModule } from '@angular/forms';
+import { FormularioContato } from "./pages/formulario-contato/formulario-contato";
 
 @Component({
   selector: 'app-root',
-  imports: [Container, Header, Separador, Contato, FormsModule],
+  imports: [Container, Header, Separador, Contato, FormsModule, FormularioContato],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })

@@ -6,12 +6,21 @@ import { ContatoInterface } from '../../interfaces/contato';
 
 import agenda from '../../agenda.json';
 import { FormsModule } from '@angular/forms';
-import { Separador } from "../../components/separador/separador";
-import { Contato } from "../../components/contato/contato";
+import { Separador } from '../../components/separador/separador';
+import { Contato } from '../../components/contato/contato';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-lista-contatos',
-  imports: [Container, Header, CommonModule, FormsModule, Separador, Contato],
+  imports: [
+    Container,
+    Header,
+    CommonModule,
+    FormsModule,
+    Separador,
+    Contato,
+    RouterLink,
+  ],
   templateUrl: './lista-contatos.html',
   styleUrl: './lista-contatos.css',
 })

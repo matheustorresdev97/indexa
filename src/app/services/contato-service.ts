@@ -4,7 +4,7 @@ import { ContatoInterface } from '../interfaces/contato';
 @Injectable({
   providedIn: 'root',
 })
-export class Contato {
+export class ContatoService {
   private contatos: ContatoInterface[] = [
     { id: 1, nome: 'Ana', telefone: '29 278869420' },
     { id: 2, nome: 'Ágata', telefone: '38 128451235' },

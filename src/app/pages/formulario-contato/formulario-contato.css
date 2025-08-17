@@ -18,6 +18,13 @@ header .header-link img.seta {
   margin: 0 8px;
 }
 
+header .header-link button {
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  background: none;
+}
+
 header .header-link a {
   text-decoration: none;
   font-family: 'Montserrat';

@@ -7,11 +7,21 @@ import agenda from '../../agenda.json';
 import { CommonModule } from '@angular/common';
 import { ContatoInterface } from '../../../interfaces/ContatoInterface';
 import { FormsModule } from '@angular/forms';
-import { Contato } from "../../components/contato/contato";
+import { Contato } from '../../components/contato/contato';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-lista-contatos',
-  imports: [Container, Header, Separator, CommonModule, FormsModule, Contato, CommonModule],
+  imports: [
+    Container,
+    Header,
+    Separator,
+    CommonModule,
+    FormsModule,
+    Contato,
+    CommonModule,
+    RouterLink,
+  ],
   templateUrl: './lista-contatos.html',
   styleUrl: './lista-contatos.css',
 })

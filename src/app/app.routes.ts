@@ -11,4 +11,9 @@ export const routes: Routes = [
     path: 'lista-contatos',
     component: ListaContatos,
   },
+  {
+    path: '',
+    redirectTo: '/lista-contatos',
+    pathMatch: 'full',
+  },
 ];

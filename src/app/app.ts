@@ -8,10 +8,12 @@ import { Contato } from './components/contato/contato';
 import agenda from './agenda.json';
 import { ContatoInterface } from '../interfaces/ContatoInterface';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { FormularioContato } from "./pages/formulario-contato/formulario-contato";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Container, Header, Separator, Contato, FormsModule],
+  imports: [RouterOutlet, Container, Header, Separator, Contato, FormsModule, CommonModule, FormularioContato],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })

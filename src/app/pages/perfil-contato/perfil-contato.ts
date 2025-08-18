@@ -16,6 +16,7 @@ export class PerfilContato implements OnInit {
   contato: ContatoInterface = {
     id: 0,
     nome: '',
+    avatar: '',
     telefone: '',
     email: '',
     aniversario: '',

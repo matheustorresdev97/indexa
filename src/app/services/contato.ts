@@ -30,4 +30,16 @@ export class ContatoService {
     return this.http.delete<ContatoInterface>(url)
   }
 
+  editarContato(contato: ContatoInterface): Observable<ContatoInterface> {
+    const url = `${this.API}/${contato.id}`
+    return this.http.put<ContatoInterface>(url, contato)
+  }
+
+  editarOuSalvarContato(contato: ContatoInterface): Observable<ContatoInterface> {
+    if (contato.id) {
+      return this.editarContato(contato)
+    } else {
+      return this.salvarContato(contato)
+    }
+  }
 }

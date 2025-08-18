@@ -1,5 +1,8 @@
 <app-container>
-  <app-header></app-header>
+  <app-header [telaInicial]="true" [bannerSrc]="'assets/banner.png'"
+    [titulo]="'Organize, <span>conecte,</span> simplifique!'">
+    >
+    ></app-header>
 
   <input type="search" placeholder="Digite para buscar" [(ngModel)]="filtroPorTexto" />
 

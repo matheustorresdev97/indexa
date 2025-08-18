@@ -1,5 +1,14 @@
 <header class="header">
   <img src="logo.png" class="logo" />
-  <img src="banner.png" class="banner" />
-  <h1 class="titulo">Organize, <span>conecte,</span> simplifique!</h1>
+  @if(!telaInicial) {
+  <div class="link">
+    <button>
+      <img class="seta" src="arrow-left.png" alt="">
+      <a routerLink="/lista-contatos">Voltar</a>
+    </button>
+  </div>
+  }
+  <img [src]="bannerSrc" class="banner">
+  <h1 [ngClass]="telaInicial ? 'titulo' : 'titulo-form'" [innerHTML]="titulo">
+  </h1>
 </header>

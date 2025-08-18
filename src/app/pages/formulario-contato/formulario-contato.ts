@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { ContatoService } from '../../services/contato';
 import { MensagemErro } from "../../components/mensagem-erro/mensagem-erro";
+import { Header } from "../../components/header/header";
 
 @Component({
   selector: 'app-formulario-contato',
@@ -20,7 +21,8 @@ import { MensagemErro } from "../../components/mensagem-erro/mensagem-erro";
     Separator,
     ReactiveFormsModule,
     RouterLink,
-    MensagemErro
+    MensagemErro,
+    Header
 ],
   templateUrl: './formulario-contato.html',
   styleUrl: './formulario-contato.css',

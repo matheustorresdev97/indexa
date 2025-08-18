@@ -4,10 +4,11 @@ import { ContatoInterface } from '../../../interfaces/ContatoInterface';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ContatoService } from '../../services/contato';
+import { Separator } from "../../components/separator/separator";
 
 @Component({
   selector: 'app-perfil-contato',
-  imports: [Container, RouterLink, CommonModule],
+  imports: [Container, RouterLink, CommonModule, Separator],
   templateUrl: './perfil-contato.html',
   styleUrl: './perfil-contato.css'
 })

@@ -1,11 +1,7 @@
 <app-container>
   <app-header></app-header>
 
-  <input
-    type="search"
-    placeholder="Digite para buscar"
-    [(ngModel)]="filtroPorTexto"
-  />
+  <input type="search" placeholder="Digite para buscar" [(ngModel)]="filtroPorTexto" />
 
   <section class="adicionar-contato">
     <button routerLink="/formulario">
@@ -19,9 +15,7 @@
     {{ letra }}
   </app-separator>
   @for (contato of filtrarContatosPorLetraInicial(letra); track contato.id) {
-  <app-contato
-    [nome]="contato.nome"
-    [telefone]="contato.telefone"
-  ></app-contato>
+  <app-contato [nome]="contato.nome" [telefone]="contato.telefone" [id]="contato.id!">
+  </app-contato>
   } }
 </app-container>

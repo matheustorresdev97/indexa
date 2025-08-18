@@ -1,31 +1,21 @@
 import { Injectable } from '@angular/core';
 import { ContatoInterface } from '../../interfaces/ContatoInterface';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ContatoService {
-  private contatos: ContatoInterface[] = [
-    { id: 1, nome: 'Ana', telefone: '29 278869420', email: 'email@emal.com' },
-  ];
 
-  constructor() {
-    const contatosLocalStorageString = localStorage.getItem('contatos');
-    const contatosLocalStorage = contatosLocalStorageString
-      ? JSON.parse(contatosLocalStorageString)
-      : null;
+  private readonly API = 'http://localhost:3000/contatos';
 
-    this.contatos = contatosLocalStorage || null;
-
-    localStorage.setItem('contatos', JSON.stringify(this.contatos));
-  }
+  constructor(private http: HttpClient) { }
 
   obterContatos() {
-    return this.contatos;
+    return this.http.get<ContatoInterface[]>(this.API);
   }
 
   salvarContato(contato: ContatoInterface) {
-    this.contatos.push(contato);
-    localStorage.setItem('contatos', JSON.stringify(this.contatos));
   }
+
 }

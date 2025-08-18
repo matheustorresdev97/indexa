@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ContatoInterface } from '../../interfaces/ContatoInterface';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +12,7 @@ export class ContatoService {
 
   constructor(private http: HttpClient) { }
 
-  obterContatos() {
+  obterContatos(): Observable<ContatoInterface[]> {
     return this.http.get<ContatoInterface[]>(this.API);
   }
 

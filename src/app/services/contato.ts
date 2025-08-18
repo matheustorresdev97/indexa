@@ -17,6 +17,7 @@ export class ContatoService {
   }
 
   salvarContato(contato: ContatoInterface) {
+    return this.http.post<ContatoInterface>(this.API, contato)
   }
 
 }

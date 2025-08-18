@@ -1,12 +1,12 @@
 <app-container>
-  <app-header [bannerSrc]="'/assets/adicionar-contato.png'" [titulo]="'Adicionar contato'">
+  <app-header [bannerSrc]="'adicionar-contato.png'" [titulo]="'Adicionar contato'">
   </app-header>
 
   <form [formGroup]="contatoForm" (ngSubmit)="salvarContato()">
     <div role="button" class="imagem-contato">
       <i class="material-icons">add</i>
       <label for="avatar">Adicione a imagem do contato</label>
-      <input type="file" accept="image/*" id="avatar" required (change)="aoSelecionarArquivo($event)">>
+      <input type="file" accept="image/*" id="avatar" required (change)="aoSelecionarArquivo($event)">
     </div>
     @if(contatoForm.get('avatar')?.value !== '') {
     <figure>

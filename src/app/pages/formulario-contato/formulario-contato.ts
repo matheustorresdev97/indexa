@@ -20,10 +20,9 @@ import { Header } from "../../components/header/header";
     Container,
     Separator,
     ReactiveFormsModule,
-    RouterLink,
     MensagemErro,
     Header
-],
+  ],
   templateUrl: './formulario-contato.html',
   styleUrl: './formulario-contato.css',
 })
@@ -39,6 +38,7 @@ export class FormularioContato implements OnInit {
 
   inicializarFormulario() {
     this.contatoForm = new FormGroup({
+      id: new FormControl(null),
       nome: new FormControl('', Validators.required),
       avatar: new FormControl('', Validators.required),
       telefone: new FormControl('', Validators.required),
@@ -69,7 +69,7 @@ export class FormularioContato implements OnInit {
   salvarContato() {
     const novoContato = this.contatoForm.value;
     const id = this.activatedRoute.snapshot.paramMap.get('id');
-    novoContato.id = id ? parseInt(id) : null
+    novoContato.id = id ? parseInt(id) : Math.floor(Math.random() * 10000) + 1;
 
     this.contatoService.editarOuSalvarContato(novoContato).subscribe(() => {
       this.contatoForm.reset();

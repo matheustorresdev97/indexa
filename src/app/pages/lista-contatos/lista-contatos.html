@@ -1,8 +1,7 @@
 <app-container>
-  <app-header [telaInicial]="true" [bannerSrc]="'assets/banner.png'"
+  <app-header [telaInicial]="true" [bannerSrc]="'banner.png'"
     [titulo]="'Organize, <span>conecte,</span> simplifique!'">
-    >
-    ></app-header>
+  </app-header>
 
   <input type="search" placeholder="Digite para buscar" [(ngModel)]="filtroPorTexto" />
 
@@ -13,12 +12,24 @@
     </button>
   </section>
 
-  @for (letra of alfabeto; track letra) {
-  <app-separator>
-    {{ letra }}
-  </app-separator>
-  @for (contato of filtrarContatosPorLetraInicial(letra); track contato.id) {
-  <app-contato [nome]="contato.nome" [telefone]="contato.telefone" [id]="contato.id!" [avatar]="contato.avatar">>
-  </app-contato>
-  } }
+  @for (letra of alfabeto.split(''); track letra) {
+    @if (filtrarContatosPorLetraInicial(letra).length > 0) {
+      <app-separator>
+        {{ letra | uppercase }}
+      </app-separator>
+      @for (contato of filtrarContatosPorLetraInicial(letra); track contato.id) {
+        <app-contato
+          [nome]="contato.nome"
+          [telefone]="contato.telefone"
+          [id]="contato.id!"
+          [avatar]="contato.avatar">
+        </app-contato>
+      }
+    }
+  }
+
+  @if (contatosFiltrados.length === 0 && filtroPorTexto) {
+    <p class="sem-contatos">Nenhum contato encontrado para "{{ filtroPorTexto }}"</p>
+  }
+
 </app-container>

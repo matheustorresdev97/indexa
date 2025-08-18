@@ -28,7 +28,6 @@ import { ContatoService } from '../../services/contato';
 export class ListaContatos implements OnInit {
   alfabeto: string = 'abcdefghijklmnopqrstuvwxyz';
   contatos: ContatoInterface[] = [];
-
   filtroPorTexto: string = '';
 
   constructor(private contatoService: ContatoService) { }
@@ -43,12 +42,11 @@ export class ListaContatos implements OnInit {
     return texto.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
   }
 
-  filtrarContatosPorTexto(): ContatoInterface[] {
+  get contatosFiltrados(): ContatoInterface[] {
     if (!this.filtroPorTexto) {
       return this.contatos;
     }
     return this.contatos.filter((contato) => {
-      // Compara os nomes sem acentuações
       return this.removerAcentos(contato.nome)
         .toLowerCase()
         .includes(this.removerAcentos(this.filtroPorTexto).toLowerCase());
@@ -56,8 +54,7 @@ export class ListaContatos implements OnInit {
   }
 
   filtrarContatosPorLetraInicial(letra: string): ContatoInterface[] {
-    return this.filtrarContatosPorTexto().filter((contato) => {
-      // Compara a letra inicial sem considerar acentuações
+    return this.contatosFiltrados.filter((contato) => {
       return this.removerAcentos(contato.nome)
         .toLowerCase()
         .startsWith(this.removerAcentos(letra).toLowerCase());
